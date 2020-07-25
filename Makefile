@@ -47,4 +47,5 @@ generate-dockerfile: ## Dockerfileのテンプレートから作成
 
 .PHONY: all
 all: ## ci.ymlの全パターン用のDockerfileのテンプレートから作成
-	@$(ci-yml) | jq --raw-output 'keys[]' | xargs -I {key} make  --no-print-directory generate-dockerfile TAG={key}
+	@$(ci-yml) | jq --raw-output 'keys[]' | xargs -I {key} make --no-print-directory generate-dockerfile TAG={key}
+	@make --no-print-directory docs

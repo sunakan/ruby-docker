@@ -1,9 +1,25 @@
 = 古めのRuby
 
-=== Dockerfileの位置
+== Dockerfileの位置
 
 include::./docs/dockerfiles-layout.adoc[]
 
-=== Help
+== セットアップと片付け
+
+include::./docs/setup.adoc[]
+
+== 実行
+
+include::./docs/run.adoc[]
+
+== yttの補足(YAMLファイル作るとき便利!!)
+
+include::./docs/ytt-supplement.adoc[]
+
+== moの補足(ロジックレスの超シンプルなテンプレートエンジンmustache)
+
+include::./docs/mo-supplement.adoc[]
+
+== Help
 
 include::./docs/help.adoc[]

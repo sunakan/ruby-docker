@@ -1,0 +1,13 @@
+==== セットアップ
+
+----
+$ make setup-ytt
+$ make setup-mo
+----
+
+==== 片付け
+
+----
+$ make uninstall-ytt
+$ make uninstall-mo
+----
