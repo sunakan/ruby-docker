@@ -15,7 +15,7 @@ jobs:
           OS_DISTRIBUTION=wheezy-slim
       - name: docker login
         run: |
-          make docker-login \
+          make dockerhub-login \
           DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }} \
           DOCKERHUB_PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}
       - name: push image
