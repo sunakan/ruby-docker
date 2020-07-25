@@ -1,3 +1,5 @@
+# 自動生成されました
+# 基本直接編集しないでください。 Dockerfile.template.mo を使ってください
 FROM debian:wheezy-slim as base
 RUN echo 'deb http://archive.debian.org/debian wheezy main' > /etc/apt/sources.list \
   && echo 'deb http://archive.debian.org/debian-security wheezy/updates main' >> /etc/apt/sources.list \

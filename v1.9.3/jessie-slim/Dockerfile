@@ -1,3 +1,5 @@
+# 自動生成されました
+# 基本直接編集しないでください。 Dockerfile.template.mo を使ってください
 FROM debian:jessie-slim as base
 RUN echo 'deb http://archive.debian.org/debian jessie main' > /etc/apt/sources.list \
   && echo 'deb http://archive.debian.org/debian-security jessie/updates main' >> /etc/apt/sources.list \

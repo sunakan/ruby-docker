@@ -32,8 +32,8 @@ os-distribution: jessie
 '1.9.3-wheezy-slim':
   _: #@ template.replace(ruby_1_9_3())
   _: #@ template.replace(wheezy_slim())
-  context-path: v1.9.3/wheezy-slim/
+  context-path: v1.9.3/wheezy-slim
 '1.9.3-jessie-slim':
   _: #@ template.replace(ruby_1_9_3())
   _: #@ template.replace(jessie_slim())
-  context-path: v1.9.3/jessie-slim/
+  context-path: v1.9.3/jessie-slim

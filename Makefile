@@ -27,7 +27,7 @@ CONTEXT_PATH    := $(shell $(ci-yml) | jq --raw-output '.["$(TAG)"]["context-pat
 ################################################################################
 .PHONY: build
 build: ## DockerImageをビルド
-	@docker build $(CONTEXT_PATH) --tag $(REPOSITORY):$(TAG)
+	@docker build $(CONTEXT_PATH)/ --tag $(REPOSITORY):$(TAG)
 
 .PHONY: push
 push: ## ビルドしたDockerImageをpush
@@ -45,7 +45,8 @@ stdout-dockerfile: ## Dockerfileのテンプレートから標準出力
 generate-dockerfile: ## Dockerfileのテンプレートから作成
 	@mkdir -p $(CONTEXT_PATH)
 	@make --no-print-directory stdout-dockerfile > $(CONTEXT_PATH)/Dockerfile
+	@echo Generated: $(CONTEXT_PATH)/Dockerfile
 
 .PHONY: all
 all: ## ci.ymlの全パターン用のDockerfileのテンプレートから作成
-	@$(ci-yml) | jq --raw-output 'keys[]' | xargs -I {key} make generate-dockerfile TAG={key}
+	@$(ci-yml) | jq --raw-output 'keys[]' | xargs -I {key} make  --no-print-directory generate-dockerfile TAG={key}

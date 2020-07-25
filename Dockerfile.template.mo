@@ -1,3 +1,5 @@
+# 自動生成されました
+# 基本直接編集しないでください。 Dockerfile.template.mo を使ってください
 FROM debian:{{BASE_TAG}} as base
 RUN echo 'deb http://archive.debian.org/debian {{OS_DISTRIBUTION}} main' > /etc/apt/sources.list \
   && echo 'deb http://archive.debian.org/debian-security {{OS_DISTRIBUTION}}/updates main' >> /etc/apt/sources.list \
