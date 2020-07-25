@@ -11,23 +11,23 @@ define ci-yml
   cat ci.yml | ./ytt -f- --output json
 endef
 
-
 ################################################################################
 # 変数
 ################################################################################
 REPOSITORY      := sunakan/ruby
 TAG             := 1.9.3-wheezy-slim
-OS_DISTRIBUTION := $(shell $(ci-yml) | jq --raw-output '.["$(TAG)"]["os-distribution"]')
+BASE_TAG        := $(shell $(ci-yml) | jq --raw-output '.["$(TAG)"]["base-tag"]')
 URL             := $(shell $(ci-yml) | jq --raw-output '.["$(TAG)"]["url"]')
 SHA256          := $(shell $(ci-yml) | jq --raw-output '.["$(TAG)"]["sha256"]')
-BUILD_CONTEXT   := $(shell $(ci-yml) | jq --raw-output '.["$(TAG)"]["build-context-path"]')
+OS_DISTRIBUTION := $(shell $(ci-yml) | jq --raw-output '.["$(TAG)"]["os-distribution"]')
+CONTEXT_PATH    := $(shell $(ci-yml) | jq --raw-output '.["$(TAG)"]["context-path"]')
 
 ################################################################################
 # タスク
 ################################################################################
 .PHONY: build
 build: ## DockerImageをビルド
-	@docker build $(BUILD_CONTEXT) --tag $(REPOSITORY):$(TAG)
+	@docker build $(CONTEXT_PATH) --tag $(REPOSITORY):$(TAG)
 
 .PHONY: push
 push: ## ビルドしたDockerImageをpush
@@ -35,12 +35,17 @@ push: ## ビルドしたDockerImageをpush
 
 .PHONY: stdout-dockerfile
 stdout-dockerfile: ## Dockerfileのテンプレートから標準出力
-	@OS_DISTRIBUTION=$(OS_DISTRIBUTION) \
+	@BASE_TAG=$(BASE_TAG) \
+	OS_DISTRIBUTION=$(OS_DISTRIBUTION) \
 	URL=$(URL) \
 	SHA256=$(SHA256) \
 	./mo Dockerfile.template.mo
 
 .PHONY: generate-dockerfile
 generate-dockerfile: ## Dockerfileのテンプレートから作成
-	@mkdir -p $(BUILD_CONTEXT)
-	@make --no-print-directory stdout-dockerfile > $(BUILD_CONTEXT)/Dockerfile
+	@mkdir -p $(CONTEXT_PATH)
+	@make --no-print-directory stdout-dockerfile > $(CONTEXT_PATH)/Dockerfile
+
+.PHONY: all
+all: ## ci.ymlの全パターン用のDockerfileのテンプレートから作成
+	@$(ci-yml) | jq --raw-output 'keys[]' | xargs -I {key} make generate-dockerfile TAG={key}
