@@ -1,0 +1,22 @@
+----
+$ make help
+######################################################################
+# Makeタスク一覧
+# $ make XXX
+# or
+# $ make XXX --dry-run
+######################################################################
+build                DockerImageをビルド
+push                 ビルドしたDockerImageをpush
+stdout-dockerfile    Dockerfileのテンプレートから標準出力
+generate-dockerfile  Dockerfileのテンプレートから作成
+all                  ci.ymlの全パターン用のDockerfileのテンプレートから作成
+setup-gitignore      .gitignoreをsetup
+dockerhub-login      dockerhubへlogin（要：user名とpassword）
+setup-ytt            yttのインストール
+uninstall-ytt        yttのアンインストール
+setup-mo             moのインストール
+uninstall-mo         moのアンインストール
+docs                 documentの生成
+help                 Make タスク一覧
+----
