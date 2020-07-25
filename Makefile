@@ -9,7 +9,7 @@ include makefiles/help.mk
 # マクロ
 ################################################################################
 define ci-yml
-  cat ci.yml | ./ytt -f- --output json
+  cat docker-infos.yml | ./ytt -f- --output json
 endef
 
 ################################################################################
