@@ -35,7 +35,12 @@ push: ## ビルドしたDockerImageをpush
 
 .PHONY: stdout-dockerfile
 stdout-dockerfile: ## Dockerfileのテンプレートから標準出力
-	OS_DISTRIBUTION=$(OS_DISTRIBUTION) \
+	@OS_DISTRIBUTION=$(OS_DISTRIBUTION) \
 	URL=$(URL) \
 	SHA256=$(SHA256) \
 	./mo Dockerfile.template.mo
+
+.PHONY: generate-dockerfile
+generate-dockerfile: ## Dockerfileのテンプレートから作成
+	@mkdir -p $(BUILD_CONTEXT)
+	@make --no-print-directory stdout-dockerfile > $(BUILD_CONTEXT)/Dockerfile
