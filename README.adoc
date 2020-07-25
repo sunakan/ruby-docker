@@ -7,6 +7,25 @@ image:https://github.com/sunakan/ruby-docker/workflows/v2.4/badge.svg[link=https
 
 image:https://dockeri.co/image/sunakan/ruby[link=https://hub.docker.com/repository/docker/sunakan/ruby]
 
+[cols="1,1"]
+|===
+
+|image:https://img.shields.io/docker/image-size/sunakan/ruby/2.4.1-wheezy-slim?label=2.4.1-wheezy-slim[]
+|image:https://img.shields.io/docker/image-size/sunakan/ruby/2.4.1-jessie-slim?label=2.4.1-jessie-slim[]
+
+|image:https://img.shields.io/docker/image-size/sunakan/ruby/2.3.2-wheezy-slim?label=2.3.2-wheezy-slim[]
+|image:https://img.shields.io/docker/image-size/sunakan/ruby/2.3.2-jessie-slim?label=2.3.2-jessie-slim[]
+
+|image:https://img.shields.io/docker/image-size/sunakan/ruby/2.1.3-wheezy-slim?label=2.1.3-wheezy-slim[]
+|image:https://img.shields.io/docker/image-size/sunakan/ruby/2.1.3-jessie-slim?label=2.1.3-jessie-slim[]
+
+|image:https://img.shields.io/docker/image-size/sunakan/ruby/2.1.1-wheezy-slim?label=2.1.1-wheezy-slim[]
+|image:https://img.shields.io/docker/image-size/sunakan/ruby/2.1.1-jessie-slim?label=2.1.1-jessie-slim[]
+
+|image:https://img.shields.io/docker/image-size/sunakan/ruby/1.9.3-wheezy-slim?label=1.9.3-wheezy-slim[]
+|image:https://img.shields.io/docker/image-size/sunakan/ruby/1.9.3-jessie-slim?label=1.9.3-jessie-slim[]
+|===
+
 == Dockerfileの位置
 
 include::./docs/dockerfiles-layout.adoc[]
