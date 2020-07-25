@@ -31,33 +31,3 @@ DockerImageのサイズ
 |image:https://img.shields.io/docker/image-size/sunakan/ruby/1.9.3-wheezy-slim?label=1.9.3-wheezy-slim[]
 |image:https://img.shields.io/docker/image-size/sunakan/ruby/1.9.3-jessie-slim?label=1.9.3-jessie-slim[]
 |===
-
-= 開発
-
-== 流れ
-
-image:./docs/diagram.png[]
-
-== Dockerfileの位置
-
-include::./docs/dockerfiles-layout.adoc[]
-
-== セットアップと片付け
-
-include::./docs/setup.adoc[]
-
-== 実行
-
-include::./docs/run.adoc[]
-
-== yttの補足(YAMLファイル作るとき便利!!)
-
-include::./docs/ytt-supplement.adoc[]
-
-== moの補足(ロジックレスの超シンプルなテンプレートエンジンmustache)
-
-include::./docs/mo-supplement.adoc[]
-
-== Help
-
-include::./docs/help.adoc[]
