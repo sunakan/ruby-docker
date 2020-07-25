@@ -6,4 +6,4 @@ include::./docs/dockerfiles-layout.adoc[]
 
 === Help
 
-linclude::./docs/help.adoc[]
+include::./docs/help.adoc[]
