@@ -1,0 +1,25 @@
+name: v1.9
+on: push
+
+jobs:
+  v1.9.3-wheezy-slim:
+    name: v1.9.3-wheezy-slim
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2.0.0
+      - name: build image
+        run: |
+          make build \
+          RUBY_VERSION=1.9.3 \
+          OS_DISTRIBUTION=wheezy-slim \
+      - name: docker login
+        run: |
+          make docker-login \
+          DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }} \
+          DOCKERHUB_PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}
+      - name: push image
+        run: |
+          make push \
+          RUBY_VERSION=1.9.3 \
+          OS_DISTRIBUTION=wheezy-slim
