@@ -7,6 +7,11 @@ image:https://github.com/sunakan/ruby-docker/workflows/v2.4/badge.svg[link=https
 
 image:https://dockeri.co/image/sunakan/ruby[link=https://hub.docker.com/repository/docker/sunakan/ruby]
 
+.ex
+----
+$ docker pull sunakan/ruby:2.1.1-jessie-slim
+----
+
 [cols="1,1"]
 |===
 
