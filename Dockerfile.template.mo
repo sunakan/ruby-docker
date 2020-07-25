@@ -1,11 +1,3 @@
-# 自動生成されました
-# 基本直接編集しないでください。 Dockerfile.template.mo を使ってください
-FROM debian:{{BASE_TAG}} as base
-RUN echo 'deb http://archive.debian.org/debian {{OS_DISTRIBUTION}} main' > /etc/apt/sources.list \
-  && echo 'deb http://archive.debian.org/debian-security {{OS_DISTRIBUTION}}/updates main' >> /etc/apt/sources.list \
-  && echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/check-valid-until.conf \
-  && apt-get update
-
 FROM base as completed
 RUN apt-get update \
   && apt-get install --assume-yes --no-install-recommends \

@@ -17,7 +17,6 @@ endef
 ################################################################################
 REPOSITORY      := sunakan/ruby
 TAG             := 1.9.3-wheezy-slim
-BASE_TAG        := $(shell $(ci-yml) | jq --raw-output '.["$(TAG)"]["base-tag"]')
 URL             := $(shell $(ci-yml) | jq --raw-output '.["$(TAG)"]["url"]')
 SHA256          := $(shell $(ci-yml) | jq --raw-output '.["$(TAG)"]["sha256"]')
 OS_DISTRIBUTION := $(shell $(ci-yml) | jq --raw-output '.["$(TAG)"]["os-distribution"]')
@@ -36,11 +35,9 @@ push: ## ビルドしたDockerImageをpush
 
 .PHONY: stdout-dockerfile
 stdout-dockerfile: ## Dockerfileのテンプレートから標準出力
-	@BASE_TAG=$(BASE_TAG) \
-	OS_DISTRIBUTION=$(OS_DISTRIBUTION) \
-	URL=$(URL) \
-	SHA256=$(SHA256) \
-	./mo Dockerfile.template.mo
+	@cat Dockerfile.base-$(OS_DISTRIBUTION)
+	@echo ''
+	@URL=$(URL) SHA256=$(SHA256) ./mo Dockerfile.template.mo
 
 .PHONY: generate-dockerfile
 generate-dockerfile: ## Dockerfileのテンプレートから作成

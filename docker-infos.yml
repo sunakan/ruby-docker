@@ -29,58 +29,45 @@ sha256: a330e10d5cb5e53b3a0078326c5731888bb55e32c4abfeb27d9e7f8e5d000250
 #@ end
 
 #!##############################################################################
-#! OS
-#!##############################################################################
-#@ def wheezy_slim():
-base-tag: wheezy-slim
-os-distribution: wheezy
-#@ end
-
-#@ def jessie_slim():
-base-tag: jessie-slim
-os-distribution: jessie
-#@ end
-
-#!##############################################################################
 #! Main
 #!##############################################################################
 '1.9.3-wheezy-slim':
   _: #@ template.replace(ruby_1_9_3())
-  _: #@ template.replace(wheezy_slim())
+  os-distribution: wheezy
   context-path: v1.9.3/wheezy-slim
 '1.9.3-jessie-slim':
   _: #@ template.replace(ruby_1_9_3())
-  _: #@ template.replace(jessie_slim())
+  os-distribution: jessie
   context-path: v1.9.3/jessie-slim
 '2.1.1-wheezy-slim':
   _: #@ template.replace(ruby_2_1_1())
-  _: #@ template.replace(wheezy_slim())
+  os-distribution: wheezy
   context-path: v2.1.1/wheezy-slim
 '2.1.1-jessie-slim':
   _: #@ template.replace(ruby_2_1_1())
-  _: #@ template.replace(jessie_slim())
+  os-distribution: jessie
   context-path: v2.1.1/jessie-slim
 '2.1.3-wheezy-slim':
   _: #@ template.replace(ruby_2_1_3())
-  _: #@ template.replace(wheezy_slim())
+  os-distribution: wheezy
   context-path: v2.1.3/wheezy-slim
 '2.1.3-jessie-slim':
   _: #@ template.replace(ruby_2_1_3())
-  _: #@ template.replace(jessie_slim())
+  os-distribution: jessie
   context-path: v2.1.3/jessie-slim
 '2.3.2-wheezy-slim':
   _: #@ template.replace(ruby_2_3_2())
-  _: #@ template.replace(wheezy_slim())
+  os-distribution: wheezy
   context-path: v2.3.2/wheezy-slim
 '2.3.2-jessie-slim':
   _: #@ template.replace(ruby_2_3_2())
-  _: #@ template.replace(jessie_slim())
+  os-distribution: jessie
   context-path: v2.3.2/jessie-slim
 '2.4.1-wheezy-slim':
   _: #@ template.replace(ruby_2_4_1())
-  _: #@ template.replace(wheezy_slim())
+  os-distribution: wheezy
   context-path: v2.4.1/wheezy-slim
 '2.4.1-jessie-slim':
   _: #@ template.replace(ruby_2_4_1())
-  _: #@ template.replace(jessie_slim())
+  os-distribution: jessie
   context-path: v2.4.1/jessie-slim
