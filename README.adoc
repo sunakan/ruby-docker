@@ -1,0 +1,5 @@
+= 古めのRuby
+
+=== Dockerfileの位置
+
+link::./docs/dockerfiles-layout.adoc[]

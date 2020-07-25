@@ -2,6 +2,7 @@ include makefiles/gitignore.mk
 include makefiles/dockerhub.mk
 include makefiles/ytt.mk
 include makefiles/mo.mk
+include makefiles/docs.mk
 include makefiles/help.mk
 
 ################################################################################
