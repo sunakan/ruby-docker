@@ -1,0 +1,38 @@
+name: v2.4
+on: push
+
+jobs:
+  v2-4-1-wheezy-slim:
+    name: v2.4.1-wheezy-slim
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2.0.0
+      - name: setup ytt
+        run: make setup-ytt
+      - name: build image
+        run: make build TAG=2.4.1-wheezy-slim
+      - name: docker login
+        run: |
+          make dockerhub-login \
+          DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }} \
+          DOCKERHUB_PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}
+      - name: push image
+        run: make push TAG=2.4.1-wheezy-slim
+  v2-4-1-jessie-slim:
+    name: v2.4.1-jessie-slim
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2.0.0
+      - name: setup ytt
+        run: make setup-ytt
+      - name: build image
+        run: make build TAG=2.4.1-jessie-slim
+      - name: docker login
+        run: |
+          make dockerhub-login \
+          DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }} \
+          DOCKERHUB_PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}
+      - name: push image
+        run: make push TAG=2.4.1-jessie-slim
