@@ -2,7 +2,7 @@ name: v1.9
 on: push
 
 jobs:
-  'v1.9.3-wheezy-slim':
+  v1-9-3-wheezy-slim:
     name: v1.9.3-wheezy-slim
     runs-on: ubuntu-latest
     steps:
