@@ -1,6 +1,7 @@
-include shared-makefiles/gitignore.mk
-include shared-makefiles/dockerhub.mk
-include shared-makefiles/help.mk
+include makefiles/gitignore.mk
+include makefiles/dockerhub.mk
+include makefiles/ytt.mk
+include makefiles/help.mk
 
 ################################################################################
 # 変数

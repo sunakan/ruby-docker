@@ -15,3 +15,8 @@ GIT_IGNORE_URL  := https://www.toptal.com/developers/gitignore/api/$(IGNORE_LIST
 
 .PHONY: setup-gitignore
 setup-gitignore: .gitignore ## .gitignoreをsetup
+	make add-ytt-for-gitignore
+
+.PHONY: add-ytt-for-gitignore
+add-ytt-for-gitignore:
+	grep 'ytt' .gitignore || echo 'ytt' >> .gitignore
