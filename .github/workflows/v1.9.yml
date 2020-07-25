@@ -12,7 +12,7 @@ jobs:
         run: |
           make build \
           RUBY_VERSION=1.9.3 \
-          OS_DISTRIBUTION=wheezy-slim \
+          OS_DISTRIBUTION=wheezy-slim
       - name: docker login
         run: |
           make docker-login \
