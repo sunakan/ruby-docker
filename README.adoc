@@ -31,6 +31,12 @@ $ docker pull sunakan/ruby:2.1.1-jessie-slim
 |image:https://img.shields.io/docker/image-size/sunakan/ruby/1.9.3-jessie-slim?label=1.9.3-jessie-slim[]
 |===
 
+= 開発
+
+== 流れ
+
+image:./docs/diagram.png[]
+
 == Dockerfileの位置
 
 include::./docs/dockerfiles-layout.adoc[]
