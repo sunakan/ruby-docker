@@ -4,13 +4,20 @@ include makefiles/ytt.mk
 include makefiles/help.mk
 
 ################################################################################
+# マクロ
+################################################################################
+define ci-yml
+  cat ci.yml | ./ytt -f- --output json
+endef
+
+
+################################################################################
 # 変数
 ################################################################################
-REPOSITORY      := sunakan/ruby
-RUBY_VERSION    := 1.9.3
-OS_DISTRIBUTION := wheezy-slim
-BUILD_CONTEXT   := $(PWD)/v$(RUBY_VERSION)/$(OS_DISTRIBUTION)/
-TAG             := $(RUBY_VERSION)-$(OS_DISTRIBUTION)
+REPOSITORY    := sunakan/ruby
+TAG           := v1.9.3-wheezy-slim
+RUBY_VERSION  := $(shell $(ci-yml) | jq --raw-output '.["$(TAG)"]["version"]')
+BUILD_CONTEXT := $(shell $(ci-yml) | jq --raw-output '.["$(TAG)"]["build-context-path"]')
 
 ################################################################################
 # タスク
