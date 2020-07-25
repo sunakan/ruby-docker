@@ -15,8 +15,7 @@ endef
 # 変数
 ################################################################################
 REPOSITORY    := sunakan/ruby
-TAG           := v1.9.3-wheezy-slim
-RUBY_VERSION  := $(shell $(ci-yml) | jq --raw-output '.["$(TAG)"]["version"]')
+TAG           := 1.9.3-wheezy-slim
 BUILD_CONTEXT := $(shell $(ci-yml) | jq --raw-output '.["$(TAG)"]["build-context-path"]')
 
 ################################################################################

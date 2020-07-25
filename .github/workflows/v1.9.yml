@@ -11,11 +11,11 @@ jobs:
       - name: setup ytt
         run: make setup-ytt
       - name: build image
-        run: make build TAG=v1.9.3-wheezy-slim
+        run: make build TAG=1.9.3-wheezy-slim
       - name: docker login
         run: |
           make dockerhub-login \
           DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }} \
           DOCKERHUB_PASSWORD=${{ secrets.DOCKERHUB_PASSWORD }}
       - name: push image
-        run: make push TAG=v1.9.3-wheezy-slim
+        run: make push TAG=1.9.3-wheezy-slim
