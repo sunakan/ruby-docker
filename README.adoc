@@ -1,4 +1,4 @@
-= 古めのRuby
+= 古めのOS/古めのRuby
 
 image:https://github.com/sunakan/ruby-docker/workflows/v1.9/badge.svg[link=https://github.com/sunakan/ruby-docker/actions?query=workflow%3Av1.9]
 image:https://github.com/sunakan/ruby-docker/workflows/v2.1/badge.svg[link=https://github.com/sunakan/ruby-docker/actions?query=workflow%3Av2.1]
