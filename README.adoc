@@ -2,4 +2,4 @@
 
 === Dockerfileの位置
 
-link::./docs/dockerfiles-layout.adoc[]
+link:./docs/dockerfiles-layout.adoc[]
