@@ -14,7 +14,9 @@ RUN apt-get update \
     libxml2-dev \
     libxslt1-dev \
     libyaml-dev \
-  && apt-get clean
+    openssl \
+  && apt-get clean \
+  && rm --recursive --force /var/lib/apt/lists/*
 
 RUN cd /tmp \
   && curl --output ruby.tar.gz {{URL}} \
