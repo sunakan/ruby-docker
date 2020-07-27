@@ -5,7 +5,7 @@ image:https://github.com/sunakan/ruby-docker/workflows/v2.1/badge.svg[link=https
 image:https://github.com/sunakan/ruby-docker/workflows/v2.3/badge.svg[link=https://github.com/sunakan/ruby-docker/actions?query=workflow%3Av2.3]
 image:https://github.com/sunakan/ruby-docker/workflows/v2.4/badge.svg[link=https://github.com/sunakan/ruby-docker/actions?query=workflow%3Av2.4]
 
-image:https://dockeri.co/image/sunakan/ruby[link=https://hub.docker.com/repository/docker/sunakan/ruby]
+image:https://dockeri.co/image/sunakan/ruby[link=https://hub.docker.com/r/sunakan/ruby/]
 
 .ex
 ----
