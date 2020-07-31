@@ -34,7 +34,7 @@ RUN apt-get update \
   && apt-get install --assume-yes bison libgdbm-dev ruby \
   && mkdir --parents /usr/src/ruby/ \
   && cd /usr/src/ruby/ \
-  && curl --output ruby.tar.gz https://ftp.ruby-lang.org/pub/ruby/2.1/ruby-2.1.3.tar.gz \
+  && curl --output ruby.tar.gz {{URL}} \
   && ( echo "$RUBY_DOWNLOAD_SHA256  ruby.tar.gz" | sha256sum --check --strict ) \
   && tar --ungzip --extract --file ./ruby.tar.gz --directory /usr/src/ruby/ --strip-components 1 \
   && ./configure --disable-install-doc --enable-shared \
