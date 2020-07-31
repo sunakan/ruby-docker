@@ -21,6 +21,8 @@ URL             := $(shell $(ci-yml) | jq --raw-output '.["$(TAG)"]["url"]')
 SHA256          := $(shell $(ci-yml) | jq --raw-output '.["$(TAG)"]["sha256"]')
 OS_DISTRIBUTION := $(shell $(ci-yml) | jq --raw-output '.["$(TAG)"]["os-distribution"]')
 CONTEXT_PATH    := $(shell $(ci-yml) | jq --raw-output '.["$(TAG)"]["context-path"]')
+RUBY_MAJOR      := $(shell dirname $(URL) | xargs -I {url} basename {url})
+RUBY_VERSION    := $(shell basename $(URL) | sed -e s/ruby-//g | sed -e s/\.tar\.gz//g)
 
 ################################################################################
 # タスク
@@ -37,7 +39,7 @@ push: ## ビルドしたDockerImageをpush
 stdout-dockerfile: ## Dockerfileのテンプレートから標準出力
 	@cat Dockerfile.base-$(OS_DISTRIBUTION)
 	@echo ''
-	@URL=$(URL) SHA256=$(SHA256) ./mo Dockerfile.template.mo
+	@RUBY_MAJOR=$(RUBY_MAJOR) RUBY_VERSION=$(RUBY_VERSION) URL=$(URL) SHA256=$(SHA256) ./mo Dockerfile.template.mo
 
 .PHONY: generate-dockerfile
 generate-dockerfile: ## Dockerfileのテンプレートから作成
